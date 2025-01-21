@@ -5,27 +5,37 @@
 #cv(
     jobtitles: ("Webentwickler", "Data Science Student"),
     skills: (
-        (name: "Statistiksprache R", level: 4),
-        (name: "Javascript", level: 4),
-        (name: "C#", level: 4),
-        (name: "Rust", level: 3),
-        (name: "Python", level: 3),
-        (name: "SQL", level: 3),
-        (name: "Microsoft Excel", level: 3),
-        (name: "Java", level: 2),
+        (title: "Programmiersprachen", skills: (
+            (name: "R", level: 4),
+            (name: "Javascript", level: 4),
+            (name: "C#", level: 4),
+            (name: "Rust", level: 3),
+            (name: "Python", level: 3),
+            (name: "PHP", level: 3),
+        )),
+        (title: "Javascript-Frameworks", skills: (
+            (name: "Svelte", level: 5),
+            (name: "Vue", level: 3)
+        )),
+        (title: "Sprachen", skills: (
+            (name: "Deutsch", level: 5),
+            (name: "Englisch", level: 4)
+        )),
+        (title: "Weitere Kenntnisse", skills: (
+            (name: "Datenanalyse", level: 4),
+            (name: "Microsoft Excel", level: 4),
+        ))
     ),
-    frameworks: (
-        (name: "Svelte", level: 5),
-        (name: "Vue", level: 3),
-    ),
-    languages: (
-        (name: "Deutsch", level: 5),
-        (name: "Englisch", level: 4)
-    ),
-    hobbys: (
-        "Singen im klassischen Chor",
-        "Komponieren",
-        "Schwimmen"
+    info: (
+        (title: "Auszeichnungen", items: (
+            "Mitglied der Studienstiftung des deutschen Volkes",
+        )),
+        (title: "Hobbys", items: (
+            "Singen im klassischen Chor",
+            "Komponieren",
+            "Schwimmen"
+        ))
+        
     ),
     experience: (
         (position: "Webentwickler", company: "Schulte Medien GmbH", time: [10/2024 #sym.dash.em aktuell], tasks: (
@@ -34,24 +44,27 @@
             "Umformung von RTF-Dateien zu PHP-Code"
         )),
         (position: "Werkstudent", company: "HackerSchool GmbH", time: [08/2020 #sym.dash.em 12/2024], tasks: (
-            "Leitung von Programmierkursen",
+            "Leitung von Programmierkursen für Schüler:innen",
             "Design und Programmierung der Kurskonzeptewebsite",
-            "Programmierung von Komponenten für das NEOS CMS",
-            "Erarbeitung von Kurskonzepten"
+            "Erarbeitung von Kurskonzepten",
+            "Programmierung von Komponenten für das NEOS CMS"
         )),
         (position: "Statistiktutor", company: "Georg-August-Universität Göttingen", time: [10/2021 #sym.dash.em 07/2023], tasks: (
             "Durchführen von Statistiktutorien im Bachelor Psychologie",
             "Durchführen von Statistiksitzungen im klinischen Master Psychologie",
             "Erarbeitung und Organisation von Sitzungsinhalten für den klinischen Master Psychologie"
+        )),
+        (position: "Forschungspraktikant", company: [Deutsches Primatenzentrum (#link("https://dpz.eu", "DPZ"))], time: [03/2023 #sym.dash.em 04/2023], tasks: (
+            "Entwerfen und Programmieren eines Bewegungswahrnehmungsexperiments",
+            "Analysieren und Präsentieren von gesammelten Daten"
         ))
     ),
     education: (
-        (position: "Bachelor Psychologie", company: "Georg-August-Universität Göttingen", time: [10/2020 #sym.dash.em aktuell], tasks: (
+        (position: "Bachelor Psychologie mit weiteren Studien im Fach Data Science", company: "Georg-August-Universität Göttingen", time: [10/2020 #sym.dash.em aktuell], tasks: (
             "Schwerpunkte: Statistik, Data Science, Neurowissenschaft",
             "Bachelorarbeit zur Bewegungswahrnehmung menschlicher Primaten in sozialen Situationen"
         )),
         (position: "Studium Generale", company: "Leibniz-Kolleg Tübingen", time: [10/2019 #sym.dash.em 07/2020], tasks: (
-            "Selbstorganisiertes Zusammenleben mit 52 anderen Studierenden",
             "Besuchen verschiedener Kurse, die mit dem ersten Semester des jeweiligen Studiengangs vergleichbar sind",
             "Schwerpunkte: Mathematik, Astrophysik, Architektur- und Kunstgeschichte, Wissenschaftstheorie",
         )),

@@ -1,5 +1,6 @@
 /rendered/
 **/*.pdf
+signature.png
 
 # Added by cargo
 

@@ -1,23 +1,5 @@
-#let wider(content) = {
-    if type(content) == str {
-        let i = 0
-        while i < content.len() {
-            content.at(i)
-            if i < content.len() - 1 {
-                h(0.1em)
-            }
-            i += 1
-        }
-    }
-    else if content.has("text") {
-        wider(content.text)
-    }
-    else if content.has("body") {
-        wider(content.body)
-    }
-    else if content == [ ] {
-        wider(" ")
-    }
+#let wider(body) = {
+    text(tracking: 0.1em, body)
 }
 #let scale(max: 5, level) = {
     let cells = ()
@@ -41,7 +23,7 @@
         for i in range(events.len()) {
             let event = events.at(i)
             place(dx: -10pt - r, dy: -1pt, circle(radius: r, inset: 0pt, fill: black))
-            text(weight: 400, wider(upper(event.position)))
+            text(weight: 400, upper(wider(event.position)))
             linebreak()
             [*#event.company* #h(1fr) *#event.time* #parbreak()]
             for task in event.tasks {
@@ -54,11 +36,11 @@
     })
 }
 
-#let cv(lang: "de", jobtitles: (), skills: (), frameworks: (), languages: (), hobbys: (), experience: (), education: ()) = [
+#let cv(lang: "de", jobtitles: (), skills: (), info: (), experience: (), education: ()) = [
     #set page(margin: 0em)
 
     #show heading.where(level: 1): it => {
-        block(spacing: 0em, below: 13pt, text(size: 13pt, weight: 400, {
+        block(spacing: 0em, below: 13pt, text(size: 13pt, weight: 600, {
             let text = it.body.text
             for i in range(text.len()) {
                 upper(text.at(i))
@@ -80,6 +62,7 @@
             }
         }
     }
+    #show link: underline
 
     #stack(dir: ltr, block(width: 38%, height: 100%, inset: (left: 1cm, right: 1cm, top: 1cm, bottom: 1cm), fill: oklch(95.04%, 0.01, 208.8deg), [
         = Bente Hinkenhuis
@@ -92,19 +75,17 @@
             {image("email.svg", height: 11pt)}, [#align(horizon, [bente\@hinkenhuis.de])],
             {image("phone.svg", height: 11pt)}, [#align(horizon, [+49 176 47305115])],
         )
-        == #if lang == "de" [Kenntnisse] else if lang == "en" [Skills]
-        #skillpanel(skills)
-        #if type(frameworks) == array and frameworks.len() > 0 [
-            == Javascript-Frameworks
-            #skillpanel(frameworks)
+        #for category in skills [
+            == #category.title
+            #skillpanel(category.skills)
         ]
-        == #if lang == "de" [Sprachen] else if lang == "en" [Languages]
-        #skillpanel(languages)
-        == Hobbys
-        #for hobby in hobbys {
-            [#hobby]
-            parbreak()
-        }
+        #for category in info [
+            == #category.title
+            #for item in category.items [
+                #item
+                #parbreak()
+            ]
+        ]
     ]), block(width: 62%, height: 100%, inset: (left: 1cm, right: 1cm, top: 1cm, bottom: 1cm), [
         == #if lang == "de" [Berufserfahrung] else if lang == "en" [Work experience]
         #timeline(experience)
