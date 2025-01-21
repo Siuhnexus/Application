@@ -1,5 +1,6 @@
 /rendered/
 **/*.pdf
+!cv/*.pdf
 signature.png
 
 # Added by cargo
